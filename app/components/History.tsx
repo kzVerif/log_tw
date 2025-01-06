@@ -2,7 +2,6 @@ import { DataTable } from "../Dashboard/data-table";
 import { columns } from "../Dashboard/column";
 import { Button } from "@/components/ui/button";
 import { getData } from "@/utils/actions";
-import ClearButton from "./ClearButton";
 
 export default async function History() {
   const data = await getData();
@@ -15,9 +14,6 @@ export default async function History() {
         </Button>
         <DataTable columns={columns} data={data.list} />
       </form>
-      {/* <div className="flex items-center justify-center">
-        <ClearButton/>
-      </div> */}
     </div>
   );
 }

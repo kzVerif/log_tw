@@ -14,7 +14,6 @@ import { revalidatePath } from "next/cache";
 // }
 let transac = [];
 
-
 export async function GET() {
   // Trigger revalidation for the homepage or other paths
   revalidatePath('/');
