@@ -13,19 +13,27 @@ export type Payment = {
 
 export const columns: ColumnDef<Payment>[] = [
   {
-    accessorKey: "received_time",
-    header: "เวลาที่โอน",
-  },
-  {
     accessorKey: "amount",
     header: "จำนวน",
   },
   {
-    accessorKey: "sender_mobile",
-    header: "เบอร์ที่โอน",
+    accessorKey: "eventType",
+    header: "ช่องทางการโอน",
   },
   {
-    accessorKey: "message",
-    header: "ข้อความ",
+    accessorKey: "sender",
+    header: "เบอร์คนโอน",
+  },
+  {
+    accessorKey: "channel",
+    header: "Channel",
+  },
+  {
+    accessorKey: "received_time",
+    header: "เวลาที่โอน",
   },
 ]
+// "received_time": "2022-01-31T13:02:23+0700",
+//             "eventType": "DIRECT_TOPUP",
+//             "amount": 10000,
+//             "channel": "7-Eleven"
