@@ -85,34 +85,34 @@ export async function POST(req) {
         channel: channel,
         sender: sender
     });
-    revalidatePath('/')
+    return revalidatePath('/')
 
-    switch (eventType) {
-      case "DIRECT_TOPUP":
-        return NextResponse.json({
-          message: `รับเงินจำนวน ${amount} สำเร็จจากช่องทาง ${channel}`,
-        });
+    // switch (eventType) {
+    //   case "DIRECT_TOPUP":
+    //     return NextResponse.json({
+    //       message: `รับเงินจำนวน ${amount} สำเร็จจากช่องทาง ${channel}`,
+    //     });
 
-      case "PROMPTPAY_IN":
-        return NextResponse.json({
-          message: `รับเงินจำนวน ${amount} สำเร็จจากช่องทาง PROMPTPAY`,
-        });
+    //   case "PROMPTPAY_IN":
+    //     return NextResponse.json({
+    //       message: `รับเงินจำนวน ${amount} สำเร็จจากช่องทาง PROMPTPAY`,
+    //     });
 
-      case "P2P":
-        return NextResponse.json({
-          message: `รับเงินจำนวน ${amount} สำเร็จจากช่องทาง P2P`,
-        });
+    //   case "P2P":
+    //     return NextResponse.json({
+    //       message: `รับเงินจำนวน ${amount} สำเร็จจากช่องทาง P2P`,
+    //     });
 
-      case "MONEY_LINK":
-        return NextResponse.json({
-          message: `รับเงินจำนวน ${amount} สำเร็จจากช่องทาง MONEY LINK`,
-        });
+    //   case "MONEY_LINK":
+    //     return NextResponse.json({
+    //       message: `รับเงินจำนวน ${amount} สำเร็จจากช่องทาง MONEY LINK`,
+    //     });
 
-      default:
-        return NextResponse.json({
-          message: "ไม่สามารถระบุประเภทการรับเงินได้",
-        });
-    }
+    //   default:
+    //     return NextResponse.json({
+    //       message: "ไม่สามารถระบุประเภทการรับเงินได้",
+    //     });
+    // }
   } catch (error) {
     // จัดการข้อผิดพลาด
     console.error("Error:", error.message);
@@ -121,4 +121,5 @@ export async function POST(req) {
       { status: 500 }
     );
   }
+  
 }
