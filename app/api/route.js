@@ -47,16 +47,7 @@ export async function POST(req) {
 
 
     const decode = jwt.decode(data.message);
-    // {
-    //     "event_type": "PROMPTPAY_IN",
-    //     "received_time":
-    //     "2022-01-31T13:02:23+0700",
-    //     "amount": 10000,
-    //     "sender_mobile": "0123456789",
-    //     "message": "",
-    //     "channel": ""
-    //     }
-    // ตรวจสอบว่า decode สำเร็จหรือไม่
+    
     if (!decode) {
       return NextResponse.json({ error: "Invalid JWT token" }, { status: 400 });
     }
